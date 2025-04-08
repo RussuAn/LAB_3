@@ -11,15 +11,14 @@ private:
     double x0;
     double eps;
 
-    double f(double x);
-    double df(double x);
-
 public:
-    Newton_class();
-    ~Newton_class();
+    Newton_class(void);
+    ~Newton_class(void);
 
     void setStart(double start);
     void setTolerance(double vol_eps);
+    double f(double x);
+    double df(double x);
     int count(double &x);
 };
 
