@@ -4,6 +4,11 @@
 Newton_class::Newton_class() {}
 Newton_class::~Newton_class() {}
 
+void Newton_class::setVolumes(double vol_a, double vol_b) {
+    a = vol_a;
+    b = vol_b;
+}
+
 void Newton_class::setStart(double start) {
     x0 = start;
 }
@@ -23,6 +28,11 @@ double Newton_class::df(double x) {
 
 int Newton_class::count(double &x) {
     x = x0;
+    if (x < a || x > b) {
+        cout << "Початкова точка поза межами проміжку." << endl;
+        return -1;
+    }
+    
     int max_iter = 100;
     int iter = 0;
 

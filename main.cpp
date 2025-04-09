@@ -16,6 +16,7 @@ int main() {
 
     cout << "\nМетод Ньютона:" << endl;
     Newton_class* newton = new Newton_class();
+    newton->setVolumes(0.4, 1);
     newton->setStart(0.5);
     newton->setTolerance(1e-9);
 
