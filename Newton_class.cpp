@@ -4,10 +4,6 @@
 Newton_class::Newton_class() {}
 Newton_class::~Newton_class() {}
 
-void Newton_class::setVolumes(double vol_a, double vol_b) {
-    a = vol_a;
-    b = vol_b;
-}
 
 void Newton_class::setStart(double start) {
     x0 = start;
@@ -28,17 +24,17 @@ double Newton_class::df(double x) {
 
 int Newton_class::count(double &x) {
     x = x0;
-    if (x < a || x > b) {
-        cout << "Початкова точка поза межами проміжку." << endl;
+    if (x <= 0) {
+        cout << "Початкова точка має бути більше 0!" << endl;
         return -1;
     }
-    
+
     int max_iter = 100;
     int iter = 0;
 
     while (iter < max_iter) {
         double derivative = df(x);
-        if (abs(derivative) < 1e-12) {
+        if (abs(derivative) < 1e-9) {
             cout << "Похідна близька до нуля — можливий розрив." << endl;
             return -1;
         }
@@ -47,13 +43,13 @@ int Newton_class::count(double &x) {
 
         if (abs(next_x - x) < eps) {
             x = next_x;
+            cout << "Кількість ітерацій: " << iter << endl;
             return 0;
         }
 
         x = next_x;
         iter++;
     }
-
     cout << "Перевищено максимальну кількість ітерацій." << endl;
     return -1;
 }

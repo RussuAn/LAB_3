@@ -5,7 +5,7 @@ int main() {
     cout << "Метод дихотомії:" << endl;
     Dyhotomia_class* dyh = new Dyhotomia_class();
     dyh->setVolumes(0.4, 1);
-    dyh->setTolerance(1e-9);
+    dyh->setTolerance(0.001);
 
     double xd;
     if (dyh->count(xd) == 0) {
@@ -16,9 +16,8 @@ int main() {
 
     cout << "\nМетод Ньютона:" << endl;
     Newton_class* newton = new Newton_class();
-    newton->setVolumes(0.4, 1);
-    newton->setStart(0.5);
-    newton->setTolerance(1e-9);
+    newton->setStart(3);
+    newton->setTolerance(0.001); 
 
     double xn;
     if (newton->count(xn) == 0) {

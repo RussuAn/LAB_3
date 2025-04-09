@@ -17,6 +17,7 @@ double Dyhotomia_class::f(double x) {
 }
 
 int Dyhotomia_class::count(double &x) {
+    int iter = 0;
     if (f(a) * f(b) >= 0) {
         cout << "На заданому проміжку [" << a << "; " << b << "] немає кореня або їх декілька." << endl;
         return -1;
@@ -30,8 +31,10 @@ int Dyhotomia_class::count(double &x) {
             b = c;
         else
             a = c;
+        iter++;
     }
 
     x = (a + b) / 2;
+    cout << "Кількість ітерацій: " << iter << endl;
     return 0;
 }

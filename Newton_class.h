@@ -19,7 +19,6 @@ public:
     Newton_class(void);
     ~Newton_class(void);
 
-    void setVolumes(double vol_a, double vol_b);
     void setStart(double start);
     void setTolerance(double vol_eps);
     int count(double &x);
