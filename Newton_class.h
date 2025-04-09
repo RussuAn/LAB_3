@@ -8,8 +8,6 @@ using namespace std;
 
 class Newton_class {
 private:
-    double a;
-    double b;
     double x0;
     double eps;
     double f(double x);
